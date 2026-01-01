@@ -7,7 +7,13 @@ import android.view.accessibility.AccessibilityEvent
 
 class WFAccessibilityService : AccessibilityService() {
 
+    override fun onServiceConnected() {
+        super.onServiceConnected()
+        WhiteFuryServiceHolder.service = this
+    }
+
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {}
+
     override fun onInterrupt() {}
 
     fun tap(x: Int, y: Int) {
